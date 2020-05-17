@@ -1,0 +1,44 @@
+ #sc{
+    position: absolute;
+    top: 10%;
+     left: 20%;
+}
+
+#s{
+    position: absolute;
+    top:13%;
+    left:21%;
+}
+#bs{
+    position: absolute;
+    top:10%;
+    right:14%;
+}
+
+#b{
+    position: absolute;
+    top:13%;
+    right: 16%;
+}
+#rt{
+    position: absolute;
+    top:53%;
+    left: 48.5%;
+}
+
+body{
+    background-color: lightgoldenrodyellow;
+}
+
+#go{
+    position: absolute;
+    top:45%;
+    left: 45%;
+    font-size: 30px;
+}
+#st{
+    position: absolute;
+    top: 45%;
+    left:45%;
+    font-size: 30px;
+}
