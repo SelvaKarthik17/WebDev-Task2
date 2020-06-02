@@ -1,6 +1,6 @@
 var canvas = document.querySelector('canvas');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = window.innerWidth-20;
+canvas.height = window.innerHeight-20;
 var c = canvas.getContext('2d');
 var dy = 0;
 var outs = document.getElementById("mout");
@@ -47,10 +47,11 @@ function Ball(x, y, radius) {
     this.update = function () {
 
         if (flag == 0) {
+            dy += 0.08;
             if (cn[i] == 0) {
                 if (this.y < 600) {
                     this.y += dy;
-                    dy += 0.08;
+                   // dy += 0.08;
                     this.draw();
                 } else if (this.y = 600) {
                     this.y = 600;
@@ -61,7 +62,7 @@ function Ball(x, y, radius) {
                 if (d[i] == 0) {
                     if (this.y < 600) {
                         this.y += dy;
-                        dy += 0.08;
+                      //  dy += 0.08;
                         this.draw();
                     } else if (this.y = 600) {
                         this.y = 600;
@@ -81,7 +82,7 @@ function Ball(x, y, radius) {
                 if (cn[i - 1] == 0) {
                     if (this.y < 600) {
                         this.y += dy;
-                        dy += 0.08;
+                       // dy += 0.08;
                         this.draw();
                     } else if (this.y = 600) {
                         this.y = 600;
@@ -92,7 +93,7 @@ function Ball(x, y, radius) {
                     if (d[i - 1] == 0) {
                         if (this.y < 600) {
                             this.y += dy;
-                            dy += 0.08;
+                           // dy += 0.08;
                             this.draw();
                         } else if (this.y = 600) {
                             this.y = 600;
@@ -115,7 +116,7 @@ function Ball(x, y, radius) {
                 if (cn[i - 2] == 0) {
                     if (this.y < 600) {
                         this.y += dy;
-                        dy += 0.08;
+                       // dy += 0.08;
                         this.draw();
                     } else if (this.y = 600) {
                         this.y = 600;
@@ -126,7 +127,7 @@ function Ball(x, y, radius) {
                     if (d[i - 2] == 0) {
                         if (this.y < 600) {
                             this.y += dy;
-                            dy += 0.08;
+                          //  dy += 0.08;
                             this.draw();
                         } else if (this.y = 600) {
                             this.y = 600;
@@ -148,9 +149,11 @@ function Ball(x, y, radius) {
 
             clicks.play();
             dy -= 5;
-            this.y += dy;
             dy += 0.08;
+            this.y += dy;
+           // dy += 0.08;
             this.draw();
+            //console.log(dy);
             flag = 0;
         }
 
@@ -186,16 +189,20 @@ var obs = [];
 var i = 0;
 
 function generate() {
+   // console.log(dy);
+    console.log(dy);
     ++i;
     r2 = Math.floor(Math.random() * 5);
     var temp = new Circle((window.innerWidth) / 2, (obs[i - 1].k - 400), 100, r1, r2);
     obs[i] = temp;
+    // c.clearRect(0, 0, window.innerWidth, window.innerHeight);
     console.log("created");
+    console.log(dy);
     f.push(0);
     n.push(3);
     cn.push(0);
     d.push(0);
-
+   //console.log(dy);
 }
 
 start.onclick = function () {
@@ -222,6 +229,8 @@ start.onclick = function () {
 var b = new Ball((window.innerWidth) / 2, (window.innerHeight / 1.5), 20);
 
 function animation() {
+   // dy += 0.08;
+    //console.log(dy);
     c.clearRect(0, 0, window.innerWidth, window.innerHeight);
     requestAnimationFrame(animation);
     if (s == 1) {
@@ -270,7 +279,7 @@ function animation() {
                 if ((b.y + b.r) > (obs[i].k + obs[i].r) && (b.y - b.r) < obs[i].k + obs[i].r + 10) {
                     cn[i] = 1;
                     if (f[i] == 1) {
-                        console.log("collide");
+                        //console.log("collide");
                         d[i] = 0;
                     } else {
                         outs.play();
